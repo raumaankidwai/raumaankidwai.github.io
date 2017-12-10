@@ -6,32 +6,63 @@
 		
 		<style>
 			[class^=color] {
+				position: absolute;
 				width: 50px;
 				height: 50px;
 			}
 			
 			.color0 {
 				background-color: #00f;
+				top: 10px;
+				left: 10px;
 			}
 			
 			.color1 {
 				background-color: #f80;
+				top: 10px;
+				left: 70px;
 			}
 			
 			.color2 {
 				background-color: #fff;
+				top: 10px;
+				left: 130px;
 			}
 			
 			.color3 {
 				background-color: #f00;
+				top: 70px;
+				left: 10px;
 			}
 			
 			.color4 {
 				background-color: #ff0;
+				top: 70px;
+				left: 70px;
 			}
 			
 			.color5 {
 				background-color: #0f0;
+				top: 70px;
+				left: 130px;
+			}
+			
+			.color6 {
+				background-color: #f00;
+				top: 130px;
+				left: 10px;
+			}
+			
+			.color7 {
+				background-color: #ff0;
+				top: 130px;
+				left: 70px;
+			}
+			
+			.color8 {
+				background-color: #0f0;
+				top: 130px;
+				left: 130px;
 			}
 		</style>
 		
@@ -41,7 +72,7 @@
 			var cube = new Cube();
 			
 			window.onkeypress = function (event) {
-				witch (event.key.toLowerCase()) {
+				switch (event.key.toLowerCase()) {
 					case "w":
 						cube.apply("x");
 					break; case "a":
