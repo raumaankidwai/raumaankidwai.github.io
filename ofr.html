@@ -4,30 +4,79 @@
 	<head>
 		<title>One Face Rubrics</title>
 		
+		<style>
+			[class^=color] {
+				width: 50px;
+				height: 50px;
+			}
+			
+			.color0 {
+				background-color: #00f;
+			}
+			
+			.color1 {
+				background-color: #f80;
+			}
+			
+			.color2 {
+				background-color: #fff;
+			}
+			
+			.color3 {
+				background-color: #f00;
+			}
+			
+			.color4 {
+				background-color: #ff0;
+			}
+			
+			.color5 {
+				background-color: #0f0;
+			}
+		</style>
+		
 		<script src="cube.js"></script>
 		
 		<script>
 			var cube = new Cube();
 			
 			window.onkeypress = function (event) {
-				console.log(event.key);
-				
-				switch (event.key) {
+				witch (event.key.toLowerCase()) {
 					case "w":
-						
+						cube.apply("x");
+					break; case "a":
+						cube.apply("z'");
+					break; case "s":
+						cube.apply("x'");
+					break; case "d":
+						cube.apply("z");
+					break; case "j":
+						cube.apply("U");
+					break; case "k":
+						cube.apply("U'");
 				}
+				
+				update();
 			};
 			
-			function move (inv) {
-				cube.applyMove("U", inv);
-				update();
-			}
-			
 			function update () {
-				console.log(cube.state.slice(0, 9));
+				var face = cube.state.slice(0, 9);
+				
+				for (var i = 0; i < face.length; i ++) {
+					document.getElementById("sticker" + i).className = "color" + face[i];
+				}
 			}
 		</script>
 	</head>
 	<body>
+		<div id="sticker0"></div>
+		<div id="sticker1"></div>
+		<div id="sticker2"></div>
+		<div id="sticker3"></div>
+		<div id="sticker4"></div>
+		<div id="sticker5"></div>
+		<div id="sticker6"></div>
+		<div id="sticker7"></div>
+		<div id="sticker8"></div>
 	</body>
 </html>
