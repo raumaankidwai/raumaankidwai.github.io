@@ -45,17 +45,20 @@
 			window.onkeypress = function (event) {
 				switch (event.key.toLowerCase()) {
 					case "w":
-						cube.applyMove("x", inv);
-					break; case "a":
-						cube.applyMove("z", !inv);
-					break; case "s":
 						cube.applyMove("x", !inv);
-					break; case "d":
+					break; case "a":
 						cube.applyMove("z", inv);
+					break; case "s":
+						cube.applyMove("x", inv);
+					break; case "d":
+						cube.applyMove("z", !inv);
 					break; case "j":
-						cube.applyMove("U", inv);
+						cube.applyMove("U");
 					break; case "k":
-						cube.applyMove("U", !inv);
+						cube.applyMove("U'");
+					break; case "l":
+						cube.applyMove("U");
+						cube.applyMove("U");
 				}
 				
 				update();
@@ -121,21 +124,22 @@
 		
 		Invert controls: <input type="checkbox" onchange="inv=!inv" /> <br/> <br/>
 		
-		Non-inverted controls: <br/>
-		W = x <br/>
-		A = z' <br/>
-		S = x' <br/>
-		D = z <br/>
-		J = U <br/>
-		K = U' <br/> <br/>
-		
-		Inverted controls: <br/>
+		Non-inverted rotations: <br/>
 		W = x' <br/>
 		A = z <br/>
 		S = x <br/>
-		D = z' <br/>
-		J = U' <br/>
-		K = U <br/> <br/>
+		D = z' <br/><br/>
+		
+		Inverted rotations: <br/>
+		W = x <br/>
+		A = z' <br/>
+		S = x' <br/>
+		D = z <br/><br/>
+		
+		Other controls: <br/>
+		J = U <br/>
+		K = U' <br/>
+		L = U2 <br/>
 		
 		<script>
 			update();
