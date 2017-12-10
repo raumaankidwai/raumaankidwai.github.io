@@ -75,6 +75,10 @@
 					[0, 0, 0, 0, 0, 0]
 				][fc][cc];
 				
+				while (rot--) {
+					face = rotateClockwise(face);
+				}
+				
 				// rot = (degrees clockwise to rotate face) / 90, yes clockwise
 				// _|0|1|2|3|4|5 cc
 				// 0|X|2|2|2|2|X
@@ -88,6 +92,18 @@
 				for (var i = 0; i < face.length; i ++) {
 					document.getElementById("sticker" + i).style.backgroundColor = "#" + ["00f", "f80", "fff", "f00", "ff0", "0f0"][face[i]]
 				}
+			}
+			
+			function rotateClockwise (arr) {
+				var ret = arr.slice();
+				
+				for (var i = 0; i < arr.length; i ++) {
+					for (var j = 0; j < arr[i].length; j ++) {
+						ret[i][j] = arr[arr.length - j - 1][i];
+					}
+				}
+				
+				return ret;
 			}
 		</script>
 	</head>
