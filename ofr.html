@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>One Face Rubrics</title>
+		
+		<script src="cube.js"></script>
+		
+		<script>
+			var cube = new Cube();
+			
+			window.onkeypress = function (event) {
+				console.log(event.key);
+				
+				switch (event.key) {
+					case "w":
+						
+				}
+			};
+			
+			function move (inv) {
+				cube.applyMove("U", inv);
+				update();
+			}
+			
+			function update () {
+				console.log(cube.state.slice(0, 9));
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
