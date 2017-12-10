@@ -63,12 +63,25 @@
 			function update () {
 				var face = cube.state.slice(0, 9);
 				
+				var curColor = cube.state[4];
+				var frontColor = cube.state[22];
+				
+				var rot = 0;
+				
+				// rot = (degrees counterclockwise to rotate face) / 90
+				// _|0|1|2|3|4|5 cc
+				// 0|X| | | | | 
+				// 1| |X| | | | 
+				// 2|0| |X| | | 
+				// 3| | | |X| | 
+				// 4| | | | |X|0
+				// 5| |0|0|0|0|X
+				// fc
+				
 				for (var i = 0; i < face.length; i ++) {
 					document.getElementById("sticker" + i).style.backgroundColor = "#" + ["00f", "f80", "fff", "f00", "ff0", "0f0"][face[i]]
 				}
 			}
-			
-			update();
 		</script>
 	</head>
 	<body>
@@ -81,5 +94,9 @@
 		<div id="sticker6"></div>
 		<div id="sticker7"></div>
 		<div id="sticker8"></div>
+		
+		<script>
+			update();
+		</script>
 	</body>
 </html>
