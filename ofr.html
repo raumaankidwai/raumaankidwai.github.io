@@ -68,14 +68,14 @@
 				
 				var rot = 0;
 				
-				// rot = (degrees counterclockwise to rotate face) / 90
+				// rot = (degrees clockwise to rotate face) / 90, yes clockwise
 				// _|0|1|2|3|4|5 cc
-				// 0|X| | | | | 
-				// 1| |X| | | | 
-				// 2|0| |X| | | 
-				// 3| | | |X| | 
-				// 4| | | | |X|0
-				// 5| |0|0|0|0|X
+				// 0|X|2|2|2|2|X
+				// 1|3|X|3|X|1|3
+				// 2|0|1|X|3|X|2
+				// 3|1|X|1|X|3|1
+				// 4|2|3|X|1|X|0
+				// 5|X|0|0|0|0|X
 				// fc
 				
 				for (var i = 0; i < face.length; i ++) {
