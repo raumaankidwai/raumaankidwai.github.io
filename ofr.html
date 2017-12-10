@@ -40,21 +40,22 @@
 		
 		<script>
 			var cube = new Cube();
+			var inv = false;
 			
 			window.onkeypress = function (event) {
 				switch (event.key.toLowerCase()) {
 					case "w":
-						cube.apply("x");
+						cube.applyMove("x", inv);
 					break; case "a":
-						cube.apply("z'");
+						cube.applyMove("z", !inv);
 					break; case "s":
-						cube.apply("x'");
+						cube.applyMove("x", !inv);
 					break; case "d":
-						cube.apply("z");
+						cube.applyMove("z", inv);
 					break; case "j":
-						cube.apply("U");
+						cube.applyMove("U", inv);
 					break; case "k":
-						cube.apply("U'");
+						cube.applyMove("U", !inv);
 				}
 				
 				update();
@@ -79,6 +80,8 @@
 		<div id="sticker6"></div>
 		<div id="sticker7"></div>
 		<div id="sticker8"></div>
+		
+		<input type="checkbox" onchange="inv=!inv" />
 		
 		<script>
 			update();
