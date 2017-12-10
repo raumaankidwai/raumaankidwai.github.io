@@ -5,63 +5,33 @@
 		<title>One Face Rubrics</title>
 		
 		<style>
-			[class^=color] {
+			[id^=sticker] {
 				position: absolute;
 				width: 50px;
 				height: 50px;
 			}
 			
-			.color0 {
-				background-color: #00f;
+			#sticker0, #sticker1, #sticker2 {
 				top: 10px;
+			}
+			
+			#sticker3, #sticker4, #sticker5 {
+				top: 70px;
+			}
+			
+			#sticker6, #sticker7, #sticker8 {
+				top: 130px;
+			}
+			
+			#sticker0, #sticker3, #sticker6 {
 				left: 10px;
 			}
 			
-			.color1 {
-				background-color: #f80;
-				top: 10px;
+			#sticker1, #sticker4, #sticker7 {
 				left: 70px;
 			}
 			
-			.color2 {
-				background-color: #fff;
-				top: 10px;
-				left: 130px;
-			}
-			
-			.color3 {
-				background-color: #f00;
-				top: 70px;
-				left: 10px;
-			}
-			
-			.color4 {
-				background-color: #ff0;
-				top: 70px;
-				left: 70px;
-			}
-			
-			.color5 {
-				background-color: #0f0;
-				top: 70px;
-				left: 130px;
-			}
-			
-			.color6 {
-				background-color: #f00;
-				top: 130px;
-				left: 10px;
-			}
-			
-			.color7 {
-				background-color: #ff0;
-				top: 130px;
-				left: 70px;
-			}
-			
-			.color8 {
-				background-color: #0f0;
-				top: 130px;
+			#sticker2, #sticker5, #sticker8 {
 				left: 130px;
 			}
 		</style>
@@ -94,7 +64,7 @@
 				var face = cube.state.slice(0, 9);
 				
 				for (var i = 0; i < face.length; i ++) {
-					document.getElementById("sticker" + i).className = "color" + face[i];
+					document.getElementById("sticker" + i).style.backgroundColor = "#" + ["00f", "f80", "fff", "f00", "ff0", "0f0"][face[i]]
 				}
 			}
 			
