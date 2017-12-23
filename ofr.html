@@ -5,109 +5,70 @@
 		<title>One Face Rubrics</title>
 		
 		<style>
-			[id^=sticker] {
+			[id^=cell] {
 				position: absolute;
 				width: 50px;
 				height: 50px;
 			}
 			
-			#sticker0, #sticker1, #sticker2 {
+			#cell0, #cell1, #cell2, #cell3 {
 				top: 10px;
 			}
 			
-			#sticker3, #sticker4, #sticker5 {
+			#cell4, #cell5, #cell6, #cell7 {
 				top: 70px;
 			}
 			
-			#sticker6, #sticker7, #sticker8 {
+			#cell8, #cell9, #cell10, #cell11 {
 				top: 130px;
 			}
 			
-			#sticker0, #sticker3, #sticker6 {
+			#cell12, #cell13, #cell14, #cell15 {
+				top: 190px;
+			}	
+			
+			#cell0, #cell4, #cell8, #cell12 {
 				left: 310px;
 			}
 			
-			#sticker1, #sticker4, #sticker7 {
+			#cell1, #cell5, #cell9, #cell13 {
 				left: 370px;
 			}
 			
-			#sticker2, #sticker5, #sticker8 {
+			#cell2, #cell6, #cell10, #cell14 {
 				left: 430px;
+			}
+			
+			#cell3, #cell7, #cell11, #cell15 {
+				left: 490px;
 			}
 		</style>
 		
-		<script src="cube.js"></script>
+		<script src="15p.js"></script>
 		
 		<script>
-			var cube = new Cube();
-			var inv = false;
+			var puzzle = new FifteenPuzzle();
+			var zpm = false;
 			
 			window.onkeypress = function (event) {
 				switch (event.key.toLowerCase()) {
 					case "w":
-						cube.applyMove("x", !inv);
+						puzzle.move(zpm ? 0 : 2);
 					break; case "a":
-						cube.applyMove("z", inv);
+						puzzle.move(zpm ? 1 : 3);
 					break; case "s":
-						cube.applyMove("x", inv);
+						puzzle.move(zpm ? 2 : 0);
 					break; case "d":
-						cube.applyMove("z", !inv);
-					break; case "j":
-						cube.applyMove("U");
-					break; case "k":
-						cube.applyMove("U", true);
-					break; case "l":
-						cube.applyMove("U");
-						cube.applyMove("U");
+						puzzle.move(zpm ? 3 : 1);
 				}
 				
 				update();
 			};
 			
 			function update () {
-				var face = cube.state.slice(0, 9);
-				
-				var curColor = cube.state[4];
-				var frontColor = cube.state[22];
-				
-				var rot = [
-					[0, 2, 2, 2, 2, 0],
-					[1, 0, 1, 0, 3, 1],
-					[0, 3, 0, 1, 0, 2],
-					[3, 0, 3, 0, 1, 3],
-					[2, 1, 0, 3, 0, 0],
-					[0, 0, 0, 0, 0, 0]
-				][frontColor][curColor];
-				
-				while (rot--) {
-					face = rotateClockwise(face);
-				}
-				
-				// rot = (degrees clockwise to rotate face) / 90, yes clockwise
-				// _|0|1|2|3|4|5 cc
-				// 0|X|2|2|2|2|X
-				// 1|3|X|3|X|1|3
-				// 2|0|1|X|3|X|2
-				// 3|1|X|1|X|3|1
-				// 4|2|3|X|1|X|0
-				// 5|X|0|0|0|0|X
-				// fc
-				
 				for (var i = 0; i < face.length; i ++) {
-					document.getElementById("sticker" + i).style.backgroundColor = "#" + ["00f", "f80", "fff", "f00", "ff0", "0f0"][face[i]]
+					document.getElementById("cell" + i).innerText = puzzle.state[i];
 				}
-			}
-			
-			function rotateClockwise (arr) {
-				var ret = arr.slice();
-				
-				for (var i = 0; i < arr.length; i ++) {
-					for (var j = 0; j < arr[i].length; j ++) {
-						ret[i][j] = arr[arr.length - j - 1][i];
-					}
-				}
-				
-				return ret;
 			}
 		</script>
 	</head>
@@ -122,24 +83,7 @@
 		<div id="sticker7"></div>
 		<div id="sticker8"></div>
 		
-		Invert controls: <input type="checkbox" onchange="inv=!inv" /> <br/> <br/>
-		
-		Non-inverted rotations: <br/>
-		W = x' <br/>
-		A = z <br/>
-		S = x <br/>
-		D = z' <br/><br/>
-		
-		Inverted rotations: <br/>
-		W = x <br/>
-		A = z' <br/>
-		S = x' <br/>
-		D = z <br/><br/>
-		
-		Other controls: <br/>
-		J = U <br/>
-		K = U' <br/>
-		L = U2 <br/>
+		Arrow keys control blank cell's movement instead of movement into blank cell: <input type="checkbox" onchange="zpm=!zpm" /> <br/> <br/>
 		
 		<script>
 			update();
