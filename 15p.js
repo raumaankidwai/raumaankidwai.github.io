@@ -24,7 +24,7 @@ FifteenPuzzle.prototype.move = function (move) {
 				throw new Error("Error: FifteenPuzzle: Illegal move");
 			}
 		break; case 1:
-			if (this.state[zerocell + 1]) {
+			if (zerocell % 4 < 3) {
 				this.state[zerocell] = this.state[zerocell + 1];
 				this.state[zerocell + 1] = 0;
 			} else {
@@ -38,7 +38,7 @@ FifteenPuzzle.prototype.move = function (move) {
 				throw new Error("Error: FifteenPuzzle: Illegal move");
 			}
 		break; case 3:
-			if (this.state[zerocell - 1]) {
+			if (zerocell % 4 > 0) {
 				this.state[zerocell] = this.state[zerocell - 1];
 				this.state[zerocell - 1] = 0;
 			} else {
