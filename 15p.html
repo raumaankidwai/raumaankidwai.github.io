@@ -67,7 +67,7 @@
 			
 			function update () {
 				for (var i = 0; i < face.length; i ++) {
-					document.getElementById("cell" + i).innerText = puzzle.state[i];
+					document.getElementById("cell" + i).innerText = puzzle.state[i] ? puzzle.state[i] : "";
 				}
 			}
 		</script>
