@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<script src="cubeadv.js"></script>
+		
+		<script>
+			var colors = [
+				"#fff",
+				"#f80",
+				"#0f0",
+				"#f00",
+				"#00f",
+				"#ff0"
+			];
+			
+			var currentColor = 0;
+			
+			var cubes = Array(16).fill(0).map(function () {
+				return Array(9).fill(0);
+			});
+			
+			document.addEventListener("DOMContentLoaded", function () {
+				for (var i = 0; i < 16; i ++) {
+					var cube = document.createElement("div");
+
+					for (var j = 0; j < 9; j ++) {
+						var sticker = document.createElement("div");
+
+						sticker.style = {
+							position: "absolute",
+							top: Math.floor(i / 4) * 75 + Math.floor(j / 3) * 25 + 20,
+							left: (i % 4) * 75 + (i % 3) * 25 + 20,
+							width: "20px",
+							height: "20px",
+							backgroundColor: "#fff",
+							border: "1px solid"
+						};
+
+						sticker.setAttribute("sticker", j);
+
+						sticker.onclick = getStickerHandler(sticker);
+
+						cube.appendChild(sticker);
+					}
+
+					cube.setAttribute("cube", i);
+
+					document.body.appendChild(cube);
+				}
+			}
+			
+			window.onkeypress = function (event) {
+				if ("123456".indexOf(event.key) > -1) {
+					currentColor = +event.key - 1;
+				}
+			};
+			
+			function getStickerHandler (sticker) {
+				return function () {
+					sticker.style.backgroundColor = colors[currentColor];
+					
+					cubes[sticker.parentElement.getAttribute("cube")][sticker.getAttribute("sticker")] = currentColor;
+				};
+			}
+		</script>
+	</head>
+	<body></body>
+</html>
