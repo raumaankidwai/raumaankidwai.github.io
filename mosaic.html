@@ -2,8 +2,20 @@
 
 <html>
 	<head>
-		<script src="cubeadv.js"></script>
+		<style>
+			#cover {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				
+				background-color: gray;
+				opacity: 0.5;
+			}
+		</style>
 		
+		<script src="cubeadv.js"></script>
 		<script>
 			var colors = [
 				"#fff",
@@ -61,9 +73,18 @@
 					cubes[sticker.parentElement.getAttribute("cube")][sticker.getAttribute("sticker")] = currentColor;
 				};
 			}
+			
+			function generate () {
+				for (var i = 0; i < cubes.length; i ++) {
+					
+				}
+			}
 		</script>
 	</head>
 	<body>
 		<button onclick="generate()">Generate!</button>
+		
+		<div id="cover"></div>
+		<div id="popup"></div>
 	</body>
 </html>
