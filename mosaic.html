@@ -104,6 +104,14 @@
 				cubes = Array(16).fill(0).map(function () {
 					return Array(9).fill(currentColor);
 				});
+				
+				var stickers = Array.from(document.getElementsByTagName("div")).filter(function (e) {
+					return e.getAttribute("sticker") !== null;
+				});
+				
+				for (var i = 0; i < stickers.length; i ++) {
+					stickers[i].style.backgroundColor = colors[currentColor];
+				}
 			}
 			
 			function generate () {
