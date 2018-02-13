@@ -5,6 +5,7 @@
 		<style>
 			#cover {
 				position: absolute;
+				
 				top: 0;
 				left: 0;
 				width: 100%;
@@ -14,6 +15,22 @@
 				opacity: 0.5;
 				
 				z-index: 100;
+				/*display: none;*/
+			}
+			
+			#popup {
+				position: absolute;
+				
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				
+				width: 200px;
+				height: 200px;
+				
+				z-index: 101;
+				/*display: none;*/
 			}
 		</style>
 		
@@ -77,9 +94,15 @@
 			}
 			
 			function generate () {
+				document.getElementById("cover").style.display = "";
+				document.getElementById("popup").style.display = "";
+				
 				for (var i = 0; i < cubes.length; i ++) {
 					
 				}
+				
+				document.getElementById("cover").style.display = "none";
+				document.getElementById("popup").style.display = "";
 			}
 		</script>
 	</head>
