@@ -100,6 +100,12 @@
 				};
 			}
 			
+			function fill () {
+				cubes = Array(16).fill(0).map(function () {
+					return Array(9).fill(currentColor);
+				});
+			}
+			
 			function generate () {
 				var popup = document.getElementById("popup");
 				
