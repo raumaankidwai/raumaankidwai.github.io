@@ -28,13 +28,15 @@
 				
 				margin: auto;
 				
-				width: 200px;
-				height: 200px;
+				width: 500px;
+				height: 500px;
 				
 				background-color: white;
 				
 				z-index: 101;
 				/*display: none;*/
+				
+				overflow-y: visible;
 			}
 		</style>
 		
@@ -98,16 +100,32 @@
 			}
 			
 			function generate () {
+				var popup = document.getElementById("popup");
+				
 				document.getElementById("cover").style.display = "";
-				document.getElementById("popup").style.display = "";
+				popup.style.display = "";
+				
+				var algs = [];
 				
 				for (var i = 0; i < cubes.length; i ++) {
+					popup.innerHTML += "Solving cube " + i + "...<br/>";
 					
+					var alg = new Cube().iterativeDeepening(cubes[i]).join(" ");
+					algs.push(alg);
+					
+					popup.innerHTML += "Found " + alg + "!<br/><br/>";
+					popup.scrollTop = popup.scrollHeight;
 				}
 				
-				document.getElementById("cover").style.display = "none";
-				document.getElementById("popup").style.display = "";
+				popup.innerHTML = "Here are your algs:<br/>" + algs.join("<br/>") + "<br/><button onclick='removePopup()'>Close this window</button>;
 			}
+			
+			function removePopup () {
+				document.getElementById("cover").style.display = "none";
+				document.getElementById("popup").style.display = "none";
+				
+				document.getElementById("popup").innerHTML = "";
+			};
 		</script>
 	</head>
 	<body>
