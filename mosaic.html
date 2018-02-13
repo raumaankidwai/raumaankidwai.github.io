@@ -15,7 +15,6 @@
 				opacity: 0.5;
 				
 				z-index: 100;
-				display: none;
 			}
 			
 			#popup {
@@ -34,7 +33,6 @@
 				background-color: white;
 				
 				z-index: 101;
-				display: none;
 				
 				overflow-y: visible;
 			}
@@ -58,6 +56,9 @@
 			});
 			
 			document.addEventListener("DOMContentLoaded", function () {
+				document.getElementById("cover").style.display = "none";
+				document.getElementById("popup").style.display = "none";
+				
 				for (var i = 0; i < 16; i ++) {
 					var cube = document.createElement("div");
 
