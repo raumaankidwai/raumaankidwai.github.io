@@ -118,7 +118,7 @@
 					popup.scrollTop = popup.scrollHeight;
 				}
 				
-				popup.innerHTML = "Here are your algs:<br/>" + algs.map(function (e, i) { return "Cube " + e + ": " + i; }).join("<br/>") + "<br/><button onclick='removePopup()'>Close this window</button>";
+				popup.innerHTML = "Here are your algs:<br/>" + algs.map(function (e, i) { return "Cube " + (i + 1) + ": " + e; }).join("<br/>") + "<br/><button onclick='removePopup()'>Close this window</button>";
 			}
 			
 			function removePopup () {
