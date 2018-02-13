@@ -15,7 +15,7 @@
 				opacity: 0.5;
 				
 				z-index: 100;
-				/*display: none;*/
+				display: none;
 			}
 			
 			#popup {
@@ -34,7 +34,7 @@
 				background-color: white;
 				
 				z-index: 101;
-				/*display: none;*/
+				display: none;
 				
 				overflow-y: visible;
 			}
@@ -117,7 +117,7 @@
 					popup.scrollTop = popup.scrollHeight;
 				}
 				
-				popup.innerHTML = "Here are your algs:<br/>" + algs.join("<br/>") + "<br/><button onclick='removePopup()'>Close this window</button>;
+				popup.innerHTML = "Here are your algs:<br/>" + algs.join("<br/>") + "<br/><button onclick='removePopup()'>Close this window</button>";
 			}
 			
 			function removePopup () {
