@@ -32,11 +32,6 @@ var img5 = new Image();
 var img6 = new Image();
 var img7 = new Image();
 var img8 = new Image();
-var alex1 = new Image();
-var alex2 = new Image();
-var alex3 = new Image();
-var alex4 = new Image();
-var alex5 = new Image();
 var scr = new Image();
 
 var use1=1;
@@ -51,7 +46,6 @@ var corsofar=0;
 
 
 var useAUFs=0;
-var useALEX=0;
 var colors = [
   ["w", "g", "o"],
   ["w", "o", "b"],
@@ -269,12 +263,6 @@ function on_canvas_click(ev) {
 
 }
 
-alex1.src = "alexmorgan1.jpg";
-alex2.src = "alexmorgan2.jpg";
-alex3.src = "alexmorgan3.jpg";
-alex4.src = "alexmorgan4.jpg";
-alex5.src = "alexmorgan5.jpg";
-
 function wrong(){
 ctx.clearRect(100,225,50,50);
 ctx.clearRect(450,225,50,50);
@@ -323,15 +311,6 @@ var usecolor="black";
 
 ctx.fillStyle = "grey";
 ctx.fillRect(168,118,264,264);
-
-if (useALEX==1)
-{
-ctx.drawImage(alex1, 255, 205, 88, 88);
-ctx.drawImage(alex2, 168, 205, 88, 88);
-ctx.drawImage(alex3, 255, 118, 88, 88);
-ctx.drawImage(alex4, 255, 292, 88, 88);
-ctx.drawImage(alex5, 342, 205, 88, 88);
-}
 
 
 /*
@@ -578,19 +557,6 @@ function AUFchanger(checkbox)
         useAUFs=0;
     }
 		newScramble();
-}
-
-function ALEXchanger(checkbox)
-{
-    if (checkbox.checked)
-    {
-        useALEX=1;
-    }
-	if (!checkbox.checked)
-    {
-        useALEX=0;
-    }
-	newScramble();
 }</script>
 <p></p>
 <table width="1100px" align="center" style="font-family: 'Courier New'">
@@ -598,7 +564,6 @@ function ALEXchanger(checkbox)
 <td width="366px" align="center">
 <input type="checkbox" onclick="AUFchanger(this)"> Allow AUF
 </td><td width="366px" align="center">
-<input type="checkbox" onclick="ALEXchanger(this)"> Moral Support
 </td>
 <td width="367px" align="center">
 Click images to toggle cases.
